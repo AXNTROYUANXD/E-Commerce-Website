@@ -1,0 +1,41 @@
+package jspservlet.db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+/* **************************************** */
+/* 											*/
+/* 											*/
+/*       Tested MySQL Version: 8.0.19       */
+/* 											*/
+/*          Environment: Mac OS             */
+/* 											*/
+/* 											*/
+/* **************************************** */
+
+public class DBConnect {  
+	    private final String DBDRIVER = "com.mysql.cj.jdbc.Driver";   
+	    private final String DBURL = "jdbc:mysql://localhost:3306/mydb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Hongkong";   
+	    private final String DBUSER = "root"; //Need to change depends on the current host.
+	    private final String DBPASSWORD = "zjyad2000719"; //Need to change depends on the current host.
+	    private Connection conn = null;
+	  
+	    public DBConnect()   {   
+	        try{   
+	            Class.forName(DBDRIVER) ;   
+	            this.conn = DriverManager.getConnection(DBURL,DBUSER,DBPASSWORD);  
+	        }catch (Exception e){ 
+	        	System.out.println(e.getMessage());  
+	        	}   
+	    }   
+	  
+	    public Connection getConnection(){   
+	        return this.conn ;   
+	    }   
+
+	    public void close(){   
+	        try{   
+	            this.conn.close() ;   
+	        }catch (Exception e){ }          
+	    }   
+}  

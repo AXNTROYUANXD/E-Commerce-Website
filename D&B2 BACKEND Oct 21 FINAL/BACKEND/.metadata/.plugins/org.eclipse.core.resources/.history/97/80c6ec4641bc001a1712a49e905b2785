@@ -1,0 +1,46 @@
+package jspservlet.dao.impl;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import jspservlet.dao.UserProductDetailsDAO;
+import jspservlet.db.DBConnect;
+import jspservlet.vo.UserProductDetails;
+
+public class UserProductDetailsDAOImpl implements UserProductDetailsDAO {
+
+	@Override
+	public String showProductDetails(UserProductDetails userproductdetails) throws Exception {
+		// TODO Auto-generated method stub
+		
+		String commodityID = userproductdetails.getCommodityID();
+		String sql = "SELECT * FROM commodity WHERE commodityID=?";
+		PreparedStatement pstmt = null;
+		DBConnect dbc = null;
+		String str = null;
+		
+		try
+		{
+			dbc = new DBConnect();
+			pstmt = dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, commodityID);
+			ResultSet rs = pstmt.executeQuery();
+			String cname = rs.getString("cname");
+			
+			rs.close();
+			pstmt.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			dbc.close();
+		}
+		
+		return str;
+
+	}
+
+}

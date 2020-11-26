@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.servlet{SearchServlet.java[SearchServlet" modifiers="1" timestamp="1593835578000"/>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.dao{UserProductDetailsDAO.java[UserProductDetailsDAO" modifiers="513" timestamp="1593693395000"/>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.servlet{ProductDetailsServlet.java[ProductDetailsServlet" modifiers="1" timestamp="1593846875000"/>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.servlet{AddCartServlet.java[AddCartServlet" modifiers="1" timestamp="1593756882000"/>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.servlet{EmptyCartServlet.java[EmptyCartServlet" modifiers="1" timestamp="1593756888000"/>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.servlet{QueryCartServlet.java[QueryCartServlet" modifiers="1" timestamp="1593746806000"/>
+    <typeInfo handle="=jspServlet/src&lt;jspservlet.dao{UserBuyDAO.java[UserBuyDAO" modifiers="513" timestamp="1593763137000"/>
+    <typeInfo handle="=jspServlet/\/Applications\/MyEclipse CodeMix Bundles\/MyEclipse CodeMix Bundles.app\/Contents\/Profile\/plugins\/com.genuitec.eclipse.j2eedt.core_13.0.0.me201910091017\/data\/libraryset\/EE_7\/javaee-api-7.0.jar=/owner.project.facets=/jst.web=/=/javadoc_location=/http:\/\/docs.oracle.com\/javaee\/7\/api\/=/=/me-identifier=/data\/libraryset\/EE_7\/\/javaee-api-7.0.jar=/&lt;javax.servlet.http(HttpServlet.class[HttpServlet" modifiers="1057" timestamp="1570587718000"/>
+</typeInfoHistroy>

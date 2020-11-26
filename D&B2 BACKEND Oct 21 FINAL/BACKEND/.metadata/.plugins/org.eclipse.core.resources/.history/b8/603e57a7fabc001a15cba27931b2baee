@@ -1,0 +1,5 @@
+package jspservlet.vo;
+
+public class UserBuy {
+
+}

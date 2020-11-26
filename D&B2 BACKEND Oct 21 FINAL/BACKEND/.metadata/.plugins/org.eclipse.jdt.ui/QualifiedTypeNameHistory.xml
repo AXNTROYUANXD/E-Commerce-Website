@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.sql.SQLException"/>
+    <fullyQualifiedTypeName name="jspservlet.db.DBConnect"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.util.List"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.util.StringUtils"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.UserSearchDAO"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.impl.UserSearchDAOimpl"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.impl.UserSearchDAOImpl"/>
+    <fullyQualifiedTypeName name="jspservlet.vo.UserProductDetatils"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.UserProductDetailsDAO"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.impl.UserProductDetailsDAOImpl"/>
+    <fullyQualifiedTypeName name="jspservlet.vo.UserSearch"/>
+    <fullyQualifiedTypeName name="jspservlet.vo.UserProductDetails"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="javax.xml.registry.infomodel.User"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.impl.UserCartDAOImpl"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.UserCartDAO"/>
+    <fullyQualifiedTypeName name="jspservlet.vo.User"/>
+    <fullyQualifiedTypeName name="jspservlet.vo.UserCartInfo"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="jspservlet.vo.UserBuy"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.UserBuyDAO"/>
+    <fullyQualifiedTypeName name="jspservlet.dao.impl.UserBuyDAOImpl"/>
+</qualifiedTypeNameHistroy>

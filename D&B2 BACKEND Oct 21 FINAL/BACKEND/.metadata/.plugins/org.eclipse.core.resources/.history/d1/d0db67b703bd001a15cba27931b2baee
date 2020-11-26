@@ -1,0 +1,119 @@
+package jspservlet.dao.impl;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
+import jspservlet.dao.UserBuyDAO;
+import jspservlet.db.DBConnect;
+import jspservlet.vo.UserBuy;
+
+
+public class UserBuyDAOImpl implements UserBuyDAO {
+
+	@Override
+	public double buyItem(UserBuy uci) throws Exception {
+		// TODO Auto-generated method stub
+		
+		
+		ArrayList<String> commodityID = null;
+		ArrayList<String> number = null;
+		ArrayList<String> price = null;
+		
+		double sum = 0;
+		
+		String currentTime= null;
+		
+		PreparedStatement pstmt = null, pstmt1 = null, pstmt2 = null, pstmt3 = null, pstmt4 = null;
+		DBConnect dbc = null;
+		
+		
+		try
+		{
+			dbc = new DBConnect();
+			
+			String sql2 = "SELECT * FROM cart WHERE username=?" ;
+			pstmt = dbc.getConnection().prepareStatement(sql2);
+			pstmt.setString(1, uci.getUsername());
+			StringBuffer sb = new StringBuffer();
+			// Temporary string form data of all the matched info.
+			String str = null;
+			ResultSet rs = pstmt.executeQuery();
+			if(!rs.next()) { // Cart is empty.
+				commodityID.add("EmptyCart");
+			}
+			else {
+				rs.previous();// Back to the first row.
+				while (rs.next()) {
+	                // Put search result behind the current result.
+					// * and % are the marks for splitting.
+					sb.append(rs.getString("commodityID"));
+					sb.append("%"); // End of the row.
+					str = sb.toString();
+					// Divided as encountered "%" and store in ArrayList
+		            String[] params = str.split("\\%");
+		            for(int i=0;i<params.length;i++) {
+		            	commodityID.add(params[i]);
+		            }
+				}
+		        rs.close();
+			}
+		        
+		    if(!commodityID.get(0).equals("EmptyCart")) {
+		    	for(int i = 0; i < commodityID.size(); i++) {
+					String sql3 = "SELECT price FROM commodity WHERE commodityID=?" ;
+					pstmt3 = dbc.getConnection().prepareStatement(sql3);
+					pstmt3.setString(1, commodityID.get(i));
+					ResultSet rs1 = pstmt.executeQuery();
+					double tempPrice = Double.parseDouble(rs1.getString("price"));
+					String sql4 = "SELECT number FROM cart WHERE commodityID=?" ;
+					pstmt4 = dbc.getConnection().prepareStatement(sql4);
+					pstmt4.setString(1, commodityID.get(i));
+					ResultSet rs2 = pstmt.executeQuery();
+					double tempnumber = Double.parseDouble(rs2.getString("number"));
+					sum = sum + tempnumber*tempPrice; 
+					rs1.close();
+			        rs2.close();
+			        pstmt3.close();
+			        pstmt4.close();
+				}
+				
+				
+				String sql1 = "INSERT INTO order VALUES(?,?,?)";
+				pstmt1 = dbc.getConnection().prepareStatement(sql1);
+				
+				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// Set format.
+				currentTime = df.format(new Date());
+				
+				pstmt1.setString(1, currentTime);
+				pstmt1.setString(2, "Purchased");
+				pstmt1.setString(3, uci.getUsername());
+			
+				pstmt1.close();
+				pstmt.close();
+		    } else {
+		    	flag = 0;
+		    }
+		   
+		}catch(SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			dbc.close();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		return 0;
+	}
+
+}

@@ -1,0 +1,14 @@
+package jspservlet.dao.impl;
+
+import jspservlet.dao.UserProductDetailsDAO;
+import jspservlet.vo.UserProductDetails;
+
+public class UserProductDetailsDAOImpl implements UserProductDetailsDAO {
+
+	@Override
+	public void showProductDetails(UserProductDetails userproductdetails) throws Exception {
+		// TODO Auto-generated method stub
+
+	}
+
+}

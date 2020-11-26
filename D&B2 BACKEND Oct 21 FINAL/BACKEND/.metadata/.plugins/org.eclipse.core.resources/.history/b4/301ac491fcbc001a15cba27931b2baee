@@ -1,0 +1,8 @@
+package jspservlet.dao;
+
+import jspservlet.vo.UserBuy;
+
+
+public interface UserBuyDAO {
+	public int buyParticularItem(UserBuy uci) throws Exception;
+}

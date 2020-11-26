@@ -1,0 +1,198 @@
+package jspservlet.dao.impl;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import jspservlet.dao.UserCartDAO;
+import jspservlet.db.DBConnect;
+import jspservlet.vo.UserCartInfo;
+import jspservlet.vo.UserProductDetails;
+import jspservlet.vo.User;
+
+
+public class UserCartDAOImpl implements UserCartDAO {
+	@SuppressWarnings("unchecked")
+	
+	public ArrayList<String> currentCart(User user) throws Exception
+	{
+
+		
+		ArrayList<String> cartItem = new ArrayList<String>();
+		cartItem.clear();
+		
+		StringBuffer sb = new StringBuffer();
+		// Temporary string form data of all the matched info.
+		String str = null;
+		
+		PreparedStatement pstmt = null;
+		DBConnect dbc = null;
+		
+		try
+		{
+			dbc = new DBConnect();
+			
+			String sql = "SELECT * FROM cart NATURAL JOIN commodity WHERE username=?";
+			pstmt = dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, user.getUsername());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(!rs.next()) { // No match.
+				cartItem.add("NoItemInCart");
+				
+			}
+			else {
+				rs.previous();// Back to the first row.
+				while (rs.next()) {
+	                // Put search result behind the current result.
+					// * and % are the marks for splitting.
+					sb.append(rs.getString("commodityID"));
+					sb.append("*");
+					sb.append(rs.getString("cname"));
+					sb.append("*");
+					sb.append(rs.getString("price"));
+					sb.append("*");
+					sb.append(rs.getString("addedDate"));
+					sb.append("*");
+					sb.append(rs.getString("picName"));
+					sb.append("%"); // End of the row.
+					//System.out.println("...............................SB" + sb);
+	            }
+				
+				str = sb.toString();
+				// Divided as encountered "%" and store in ArrayList
+	            String[] params = str.split("\\%");
+	            for(int i=0;i<params.length;i++) {
+	            	searchResult.add(params[i]);
+	            }
+			}
+			rs.close();
+			pstmt.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			dbc.close();
+		}
+		return productInfo;
+	}
+
+	@Override
+	public int addToCart(UserCartInfo info) throws Exception {
+		int flag = 0;
+		String sql = "";
+		PreparedStatement pstmt = null;
+		DBConnect dbc = null;
+		flag = this.queryCart(info);
+		if(flag == 1)
+		{
+			dbc = new DBConnect();
+			if(info.getNumber() == 0)
+			{
+				sql = "delete from cart where username=? and product_id=?";
+				pstmt = dbc.getConnection().prepareStatement(sql);
+				pstmt.setString(1, info.getUsername());
+				pstmt.setString(2, info.getProduct_id());
+			}
+				
+			else
+			{
+				sql = "update cart set number=? where username=? and product_id=?";
+				pstmt = dbc.getConnection().prepareStatement(sql);
+				pstmt.setInt(1, info.getNumber());
+				pstmt.setString(2, info.getUsername());
+				pstmt.setString(3, info.getProduct_id());
+			}	
+			flag = pstmt.executeUpdate();
+		}
+		else
+		{
+			dbc = new DBConnect();
+			if(info.getNumber() == 0)
+			{
+				sql = "delete from cart where username=? and product_id=?";
+				pstmt = dbc.getConnection().prepareStatement(sql);
+				pstmt.setString(1, info.getUsername());
+				pstmt.setString(2, info.getProduct_id());
+				flag = pstmt.executeUpdate();
+			}
+			else
+			{
+				sql = "insert into cart values(?,?,?)";
+				pstmt = dbc.getConnection().prepareStatement(sql);
+				pstmt.setString(1, info.getUsername());
+				pstmt.setString(2, info.getProduct_id());
+				pstmt.setInt(3, info.getNumber());
+				boolean f = pstmt.execute();
+				if(!f)
+					flag = 1;
+			}			
+			
+		}
+		pstmt.close();
+		return flag;
+	}
+	public int queryCart(UserCartInfo info) throws Exception
+	{
+		int flag = 0;
+		String sql = "select * from cart where username=? and product_id=?";
+		PreparedStatement pstmt = null;
+		DBConnect dbc = null;
+		try
+		{
+			dbc = new DBConnect();
+			pstmt = dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, info.getUsername());
+			pstmt.setString(2, info.getProduct_id());
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next())
+				flag = 1;
+			rs.close();
+			pstmt.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			dbc.close();
+		}
+		return flag;
+	}
+	public int resertCart(User user) throws Exception
+	{
+		int flag = 0;
+		String sql = "delete from cart where username=?";
+		PreparedStatement pstmt = null;
+		DBConnect dbc = null;
+		try
+		{
+			dbc = new DBConnect();
+			pstmt = dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, user.getUsername());
+			flag = pstmt.executeUpdate();
+			pstmt.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			dbc.close();
+		}
+		return flag;
+	}
+	public class YourClassName implements java.io.Serializable{
+
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		 
+	}
+	
+}

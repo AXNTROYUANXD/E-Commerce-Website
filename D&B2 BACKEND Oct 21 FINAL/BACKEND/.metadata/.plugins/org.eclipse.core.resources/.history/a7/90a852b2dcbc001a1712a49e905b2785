@@ -1,0 +1,41 @@
+package jspservlet.servlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.registry.infomodel.User;
+
+import jspservlet.dao.UserCartDAO;
+import jspservlet.dao.impl.UserCartDAOImpl;
+import jspservlet.vo.UserCartInfo;
+
+public class QueryCartServlet extends HttpServlet {
+
+	public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
+	{
+		this.doPost(req, res);
+	}
+	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException,ServletException
+	{
+		final int LENGTH = 6;
+		HttpSession session1 = req.getSession();
+		User user = new User();
+		user.setUsername((String)session1.getAttribute("username"));
+		ArrayList<String> productInfo = new ArrayList<String>();
+		UserCartDAO info = new UserCartDAOImpl();
+		try{
+			productInfo = info.currentCart(user);
+			HttpSession session = req.getSession();
+			session.setAttribute("ProductInformation", productInfo);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		res.sendRedirect("./cartContent.jsp");
+	}
+	
+}

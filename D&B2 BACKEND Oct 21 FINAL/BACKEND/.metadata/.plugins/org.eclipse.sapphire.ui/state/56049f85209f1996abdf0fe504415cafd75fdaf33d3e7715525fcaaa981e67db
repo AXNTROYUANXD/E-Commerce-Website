@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailsEditorPageState>
+    <ContentOutlineState>
+        <Ratio>0.29791271347248577</Ratio>
+        <Root>
+            <Children>
+                <MasterDetailsNodeState>
+                    <Label>General Settings</Label>
+                    <Expanded>true</Expanded>
+                </MasterDetailsNodeState>
+                <MasterDetailsNodeState>
+                    <Label>Error Pages</Label>
+                    <Expanded>true</Expanded>
+                </MasterDetailsNodeState>
+                <MasterDetailsNodeState>
+                    <Label>Servlets</Label>
+                    <Expanded>true</Expanded>
+                    <Children>
+                        <MasterDetailsNodeState>
+                            <Label>ProductDetailsServlet &lt;-&gt; URL</Label>
+                            <Selected>true</Selected>
+                        </MasterDetailsNodeState>
+                    </Children>
+                </MasterDetailsNodeState>
+            </Children>
+        </Root>
+    </ContentOutlineState>
+</MasterDetailsEditorPageState>

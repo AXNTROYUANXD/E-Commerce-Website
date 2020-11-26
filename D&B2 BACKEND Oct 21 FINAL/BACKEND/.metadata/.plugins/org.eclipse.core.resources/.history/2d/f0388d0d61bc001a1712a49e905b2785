@@ -1,0 +1,11 @@
+package jspservlet.vo;
+
+public class CartInfo {
+	
+	private String username;
+	private int number;
+	private String commodityID;
+	
+	
+
+}

@@ -1,0 +1,8 @@
+package jspservlet.dao;
+
+import jspservlet.vo.UserCartInfo;
+
+
+public interface CartDAO {
+	public int addToCart(UserCartInfo info) throws Exception;
+} 

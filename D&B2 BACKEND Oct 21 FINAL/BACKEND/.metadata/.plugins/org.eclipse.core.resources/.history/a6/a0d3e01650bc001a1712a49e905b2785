@@ -1,0 +1,5 @@
+package jspservlet.servlet;
+
+public class ProductDetailsServlet {
+
+}

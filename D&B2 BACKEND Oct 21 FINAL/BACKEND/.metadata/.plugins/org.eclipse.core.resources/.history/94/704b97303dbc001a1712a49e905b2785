@@ -1,0 +1,6 @@
+package jspservlet.dao;
+
+
+public class UserProductDetailsDAO {
+	public void showProductDetails(UserProductDetails userproductdetails) throws Exception;
+}

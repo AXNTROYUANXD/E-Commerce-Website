@@ -1,0 +1,230 @@
+		*{
+				padding: 0;
+				margin: 0;
+			}
+		#head{
+			height: 50px;
+			background-color: black;		
+		}
+		
+		.button0{
+			background: black;
+			color: white;
+			position: absolute;
+			height: 40px;
+			width: 100px;
+			border: black;
+			left: 50%;
+			margin-left: -200px;
+			top: 5px;
+			font-size:24px
+		}
+		.button1{
+			background: black;
+			color: white;
+			position: absolute;
+			height: 40px;
+			width: 100px;
+			border: black;
+			left: 50%;
+			margin-left: 100px;
+			top: 5px;
+			font-size:24px
+		}
+		.button3{
+			background: black;
+			color: white;
+			height: 40px;
+			width: 100px;
+			border: black;
+			float: right;
+			top: 5px;
+			font-size:20px
+		}
+		.button010{
+			background: black;
+			color: white;
+			position: absolute;
+			height: 40px;
+			width: 300px;
+			border: black;
+			left: 250px;
+			top: 5px;
+			font-size:20px
+		}
+		.central{
+			background: black;
+			color: white;
+			position: absolute;
+			height: 40px;
+			width: 200px;
+			border: black;
+			left: 100px;
+			top: 5px;
+			font-size:20px
+		}
+		.logo{
+			position: absolute;
+			height: 40px;
+			width: 40px;
+			border: black;
+			left: 50%;
+			margin-left: -20px;
+			top: 5px;
+			background: #FFFFFF;
+			background-image: url("logo.png");
+			background-size:40px 40px;
+			border-radius: 20px;
+		}
+		
+.backgnd1 {
+    height: 700px;
+    width: 100%;
+    top: 150px;
+	position: absolute;	
+	background-color: #EEEEEE;
+	border:none;
+	}			
+.backgnd2 {
+    height: 350px;
+    width: 1200px;
+    top: 240px;
+	left: 50%;
+	margin-left: -600px;
+	border-radius: 18px;
+    border: none;
+	position: absolute;	
+	background-color: #FFFFFF;
+	font-size: 25px;
+	}			
+			
+		.button61{
+			background: #EEEEEE;
+			color: #606060;
+			position: absolute;
+			height: 42px;
+			width: 200px;
+			border: black;
+			left: 30%;
+			margin-left: -40px;
+			top: 300px;
+			font-size:20px;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+		}			
+		.button62{
+			background: #EEEEEE;
+			color: #606060;
+			position: absolute;
+			height: 42px;
+			width: 200px;
+			border: black;
+			left: 30%;
+			margin-left: -40px;
+			top: 360px;
+			font-size:20px;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+		}	
+		.button63{
+			background: #EEEEEE;
+			color: #606060;
+			position: absolute;
+			height: 42px;
+			width: 200px;
+			border: black;
+			left: 30%;
+			margin-left: -40px;
+			top: 420px;
+			font-size:20px;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+		}
+		.button64{
+			background: #EEEEEE;
+			color: #606060;
+			position: absolute;
+			height: 42px;
+			width: 200px;
+			border: black;
+			left: 30%;
+			margin-left: -40px;
+			top: 480px;
+			font-size:20px;
+			border-bottom-left-radius: 10px;
+			border-top-left-radius: 10px;
+		}	
+		
+    .password {
+    width: 500px;
+    height: 40px;
+	top: 300px;
+	left: 50%;
+	margin-left: -160px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+	position: absolute;
+	font-size: 18px;
+}
+
+    .firstname {
+    width: 500px;
+    height: 40px;
+	top: 360px;
+	left: 50%;
+	margin-left: -160px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+	position: absolute;
+	font-size: 18px;
+}
+
+    .lastname {
+    width: 500px;
+    height: 40px;
+	top: 420px;
+	left: 50%;
+	margin-left: -160px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+	position: absolute;
+	font-size: 18px;
+}
+
+    .birthday {
+    width: 500px;
+    height: 40px;
+	top: 480px;
+	left: 50%;
+	margin-left: -160px;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding-left: 20px;
+	position: absolute;
+	font-size: 18px;
+}
+    .upload {
+    height: 80px;
+    width: 1200px;
+    top: 650px;
+	left: 50%;
+	margin-left: -600px;
+	border-radius: 18px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+	position: absolute;	
+	background-color:#FFFFFF;
+	font-size: 45px;
+	}

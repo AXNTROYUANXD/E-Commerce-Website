@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;jspServletInstrument&apos;&#x0A;- Original project: &apos;jspServletInstrument&apos;&#x0A;- Original elements:&#x0A;     jspServletInstrument/src/main/java&#x0A;     jspServletInstrument/src/main/resources&#x0A;     jspServletInstrument/src/test/java&#x0A;     jspServletInstrument/src/test/resources" description="Delete elements" element1="/src\/test\/resources" element2="/src\/main\/java" element3="/src\/test\/java" element4="/src\/main\/resources" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1593420240869" subPackages="false" version="1.0"/>
+</session>

@@ -1,0 +1,14 @@
+package jspservlet.dao.impl;
+
+import jspservlet.dao.UserBuyDAO;
+import jspservlet.vo.UserCartInfo;
+
+public class UserBuyDAOImpl implements UserBuyDAO {
+
+	@Override
+	public int buyParticularItem(UserCartInfo uci) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,84 @@
+package jspservlet.dao.impl;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import jspservlet.dao.UserBuyDAO;
+import jspservlet.db.DBConnect;
+import jspservlet.vo.UserBuy;
+
+
+public class UserBuyDAOImpl implements UserBuyDAO {
+
+	@Override
+	public int buyItem(UserBuy uci) throws Exception {
+		// TODO Auto-generated method stub
+		
+		int flag = 0;
+		
+		ArrayList<String> commodityID = null;
+		ArrayList<String> number = null;
+		
+		PreparedStatement pstmt = null;
+		DBConnect dbc = null;
+		
+		
+		try
+		{
+			dbc = new DBConnect();
+			
+			String sql = "INSERT INTO order VALUES(?,?,?,?)";
+			pstmt = dbc.getConnection().prepareStatement(sql);
+			pstmt.setString(1, uci.getOrderID());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(!rs.next()) { // No Item In Cart.
+				cartItem.add("NoItemInCart");
+				
+			}
+			else {
+				rs.previous();// Back to the first row.
+				while (rs.next()) {
+	                // Put search result behind the current result.
+					// * and % are the marks for splitting.
+					sb.append(rs.getString("commodityID"));
+					sb.append("*");
+					sb.append(rs.getString("cname"));
+					sb.append("*");
+					sb.append(rs.getString("price"));
+					sb.append("*");
+					sb.append(rs.getString("picName"));
+					sb.append("%"); // End of the row.
+	            }
+				
+				str = sb.toString();
+				// Divided as encountered "%" and store in ArrayList
+	            String[] params = str.split("\\%");
+	            for(int i=0;i<params.length;i++) {
+	            	cartItem.add(params[i]);
+	            }
+			}
+			rs.close();
+			pstmt.close();
+		}catch(SQLException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			dbc.close();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		return 0;
+	}
+
+}

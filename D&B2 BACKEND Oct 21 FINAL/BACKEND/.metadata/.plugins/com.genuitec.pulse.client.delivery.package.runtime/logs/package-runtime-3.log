@@ -1,0 +1,8 @@
+Jun 29, 2020 4:34:25 PM com.genuitec.pulse.client.deliverypackage.runtime.internal.Activator initializeLoggers
+INFO: Package starting up at Mon Jun 29 16:34:25 CST 2020
+Jun 29, 2020 4:34:26 PM com.genuitec.pulse.client.deliverypackage.runtime.UpdatesService checkForWorkspaceUpdates
+INFO: Latest version of package has already been enabled in the workspace; check finished in 3ms
+Jul 01, 2020 4:06:05 PM org.glassfish.grizzly.http.server.NetworkListener shutdownNow
+INFO: Stopped listener bound to [127.0.0.1:64060]
+Jul 01, 2020 4:06:05 PM org.glassfish.tyrus.server.Server stop
+INFO: Websocket Server stopped.
